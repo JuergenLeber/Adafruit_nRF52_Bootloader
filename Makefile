@@ -343,6 +343,11 @@ ifneq ($(findstring 12.,$(shell $(CC) --version 2>/dev/null)),)
 	CFLAGS += --param=min-pagesize=0
 endif
 
+# same for version 13.x
+ifneq ($(findstring 13.,$(shell $(CC) --version 2>/dev/null)),)
+        CFLAGS += --param=min-pagesize=0
+endif
+
 #------------------------------------------------------------------------------
 # Linker Flags
 #------------------------------------------------------------------------------
