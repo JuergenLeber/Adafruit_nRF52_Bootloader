@@ -75,7 +75,7 @@ RM = rm -rf
 CP = cp
 
 # Flasher utility options
-NRFUTIL = adafruit-nrfutil
+NRFUTIL = nrfutil
 NRFJPROG = nrfjprog
 FLASHER ?= nrfjprog
 PYOCD ?= pyocd
@@ -446,7 +446,7 @@ $(BUILD)/$(MERGED_FILE).hex: $(BUILD)/$(OUT_NAME).hex
 
 # Create pkg zip file for bootloader+SD combo to use with DFU CDC
 $(BUILD)/$(MERGED_FILE).zip: $(BUILD)/$(OUT_NAME).hex
-	@$(NRFUTIL) dfu genpkg --dev-type 0x0052 --dev-revision $(DFU_DEV_REV) --bootloader $< --softdevice $(SD_HEX) $@
+	@$(NRFUTIL) pkg generate --hw-version 52 --sd-req 0x00 --bootloader-version $(DFU_DEV_REV) --bootloader $< --softdevice $(SD_HEX) $@
 
 #-------------- Artifacts --------------
 $(BIN):
