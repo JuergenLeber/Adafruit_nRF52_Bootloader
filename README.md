@@ -10,6 +10,16 @@ DFU via serial/CDC requires [adafruit-nrfutil](https://github.com/adafruit/Adafr
 $ pip3 install --user adafruit-nrfutil
 ```
 
+## How to add SoftDevice S340 v7.0.1
+In order to be able to download the required ANT+ capable SoftDevice, you need to register an account at [thisisant.com](https://www.thisisant.com/register/). 
+- Download the SoftDevice S340 v7.0.1 [(here)](https://www.thisisant.com/developer/components/nrf52832#tab_protocol_stacks_tab)
+- Important: Only SoftDevice S340 v7.0.1 will work as the rest of the code has been adjusted to it. Don't try newer or older versions.
+- Under `lib/softdevice` create a folder called `s340_nrf52_7.0.1`
+  - Copy the API folder `ANT_s340_nrf52_7.0.1.API`, the license agreement `License_Agreement_ANT_Softdevice_rev3_3.pdf` and the hex file `ANT_s340_nrf52_7.0.1.hex` to it.
+  - Rename the API folder to `s340_nrf52_7.0.1_API`
+  - Rename the hex file to `s340_nrf52_7.0.1_softdevice.hex`
+  - Modify `lib/softdevice/s340_nrf52_7.0.1_API/include/nrf_sdm.h` on line 191 and remove the two slashes at the beginning of `//#define...`. Optionally provide your own license key there.
+
 ## Supported Boards
 
 Officially supported boards are:

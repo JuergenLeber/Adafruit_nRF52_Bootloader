@@ -326,7 +326,11 @@ static uint32_t ble_stack_init(void) {
       .rc_temp_ctiv = 2,
       .accuracy     = NRF_CLOCK_LF_ACCURACY_250_PPM
   };
-  sd_softdevice_enable(&clock_cfg, app_error_fault_handler);
+  #ifndef ANT_LICENSE_KEY
+    sd_softdevice_enable(&clock_cfg, app_error_fault_handler);
+  #else
+    sd_softdevice_enable(&clock_cfg, app_error_fault_handler, ANT_LICENSE_KEY);
+  #endif
   sd_nvic_EnableIRQ(SD_EVT_IRQn);
 
   /*------------- Configure BLE params  -------------*/

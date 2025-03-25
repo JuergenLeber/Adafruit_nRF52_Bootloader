@@ -65,3 +65,8 @@ TAGS
 
 .DS_Store
 Makefile.user
+
+# Exclude SoftDevice S340
+lib/softdevice/s340_nrf52_7.0.1/s340_nrf52_7.0.1_softdevice.hex
+lib/softdevice/s340_nrf52_7.0.1/License_Agreement_ANT_Softdevice_rev3_3.pdf
+lib/softdevice/s340_nrf52_7.0.1/s340_nrf52_7.0.1_API
