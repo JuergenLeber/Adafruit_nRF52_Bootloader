@@ -114,17 +114,18 @@ else ifeq ($(MCU_SUB_VARIANT),nrf52833)
   CFLAGS += -DNRF52833_XXAA -DS140
   DFU_APP_DATA_RESERVED=7*4096
 else ifeq ($(MCU_SUB_VARIANT),nrf52840)
-  SD_NAME = s140
   DFU_DEV_REV = 52840
-  CFLAGS += -DNRF52840_XXAA -DS140
+  ifdef USE_S340 
+    SD_NAME = s340
+    CFLAGS += -DNRF52840_XXAA -DS340
+  else
+    SD_NAME = s140
+    CFLAGS += -DNRF52840_XXAA -DS140
+  endif
   # App reserved 40KB (8+32) to match circuitpython for 840
   DFU_APP_DATA_RESERVED=10*4096
 else
   $(error Sub Variant $(MCU_SUB_VARIANT) is unknown)
-endif
-ifdef USE_S340 
-  SD_NAME = s340
-  MCU_FLAGS = -DNRF52840_XXAA -DS340
 endif
 
 #------------------------------------------------------------------------------
