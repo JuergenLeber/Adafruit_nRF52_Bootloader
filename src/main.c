@@ -329,7 +329,15 @@ static uint32_t ble_stack_init(void) {
   #ifndef ANT_LICENSE_KEY
     sd_softdevice_enable(&clock_cfg, app_error_fault_handler);
   #else
+    // Disable USB
+    nrfx_power_usbevt_disable();
+    nrfx_power_usbevt_uninit();
+    nrfx_power_uninit();
     sd_softdevice_enable(&clock_cfg, app_error_fault_handler, ANT_LICENSE_KEY);
+    // Re-enable USB
+    sd_power_usbdetected_enable(true);
+    sd_power_usbpwrrdy_enable(true);
+    sd_power_usbremoved_enable(true); 
   #endif
   sd_nvic_EnableIRQ(SD_EVT_IRQn);
 
