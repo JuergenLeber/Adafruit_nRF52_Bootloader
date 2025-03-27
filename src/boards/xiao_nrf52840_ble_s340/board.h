@@ -50,7 +50,7 @@
 // BLE OTA
 //--------------------------------------------------------------------+
 #define BLEDIS_MANUFACTURER   "Seeed"
-#define BLEDIS_MODEL          "XIAO nRF52840 ANT/BLE"
+#define BLEDIS_MODEL          "XIAO nRF52840 S340"
 
 //--------------------------------------------------------------------+
 // USB
@@ -60,7 +60,7 @@
 #define USB_DESC_CDC_ONLY_PID  0x0044
 
 //------------- UF2 -------------//
-#define UF2_PRODUCT_NAME   "Seeed XIAO nRF52840 ANT/BLE"
+#define UF2_PRODUCT_NAME   "Seeed XIAO nRF52840 S340"
 #define UF2_VOLUME_LABEL   "XIAO-BOOT"
 #define UF2_BOARD_ID       "nRF52840-SeeedXiao-v1"
 #define UF2_INDEX_URL      "https://www.seeedstudio.com/"
