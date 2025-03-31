@@ -332,7 +332,7 @@ ifeq ($(DEBUG), 1)
 
 	# expand bootloader address to 28KB/40KB of reserved app
   ifeq ($(MCU_SUB_VARIANT),nrf52840)
-    CFLAGS += -DBOOTLOADER_REGION_START=0xEA000
+    CFLAGS += -DBOOTLOADER_REGION_START=0xED000
   else
     CFLAGS += -DBOOTLOADER_REGION_START=0x6D000
   endif
